@@ -25,7 +25,7 @@ namespace mohome
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-
+            services.AddControllersWithViews();
             services.Configure<ForwardedHeadersOptions>(opts =>
             {
                 opts.KnownProxies.Add(IPAddress.Parse("10.0.0.100"));
@@ -33,16 +33,12 @@ namespace mohome
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-            }
+            
+            app.UseDeveloperExceptionPage();
+
+            app.UseStatusCodePages();
 
             app.UseStaticFiles();
 
@@ -59,7 +55,7 @@ namespace mohome
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapDefaultControllerRoute();
             });
         }
     }

@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container bg-dark">
+                <a class="navbar-brand text-white" asp-action="Index">mohome</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-action="Resume">关于我</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-action="Articles">技术文章</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-action="Knowledge">知识点</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-action="Life">生活&amp;游戏&amp;杂谈</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
